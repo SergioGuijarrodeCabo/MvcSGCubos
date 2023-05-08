@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MvcSGCubos.Models.CompraCubos>
+
+@{
+    ViewData["Title"] = "PedidosUsuario";
+}
+
+<h1>PedidosUsuario</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Pedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Cubo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPedido)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Pedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Cubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPedido)
+            </td>
+        
+        </tr>
+}
+    </tbody>
+</table>

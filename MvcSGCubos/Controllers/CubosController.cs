@@ -69,6 +69,16 @@ namespace MvcSGCubos.Controllers
             return View(usuario);
         }
 
+        [AuthorizeUsuarios]
+        public async Task<IActionResult> PedidosUsuario()
+        {
+            string token =
+                HttpContext.Session.GetString("TOKEN");
+            List<CompraCubos> pedidos = await
+                this.service.GetPedidosUsuariosAsync(token);
+            return View(pedidos);
+        }
+
 
 
     }
