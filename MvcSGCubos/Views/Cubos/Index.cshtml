@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MvcSGCubos.Models.Cubo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Cubos" asp-action="InsertarUsuario" >Insertar usuario</a>
+</p>
+
+<p>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Cubos" asp-action="InsertarCubo" >Insertar cubo</a>
+</p>
+
+<form method="post">
+    <label>Marca</label>
+    <input type="text" name="marca" />
+    <button>Buscar por marca</button>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Cubo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Cubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                                 <img src="@item.Imagen" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                
+             
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

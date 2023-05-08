@@ -203,33 +203,33 @@ namespace MvcSGCubos.Services
         }
 
 
-        public async Task InsertarPedidoAsync(int Id_Pedido, int Id_Cubo, DateTime FechaPedido, string token)
-        {
-            string request = "/api/cubos/perfilusuario";
-            Usuario usuario =
-                  await this.CallApiAsync<Usuario>(request, token);
+        //public async Task InsertarPedidoAsync(int Id_Pedido, int Id_Cubo, DateTime FechaPedido, string token)
+        //{
+        //    string request = "/api/cubos/perfilusuario";
+        //    Usuario usuario =
+        //          await this.CallApiAsync<Usuario>(request, token);
 
-            if (usuario != null)
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    string request2 = "api/cubos/createpedido/" + Id_Pedido + "/" + Id_Cubo + "/" + FechaPedido;
-                    client.BaseAddress = new Uri(this.UrlApiCubos);
-                    client.DefaultRequestHeaders.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(this.Header);
+        //    if (usuario != null)
+        //    {
+        //        using (HttpClient client = new HttpClient())
+        //        {
+        //            string request2 = "api/cubos/createpedido/" + Id_Pedido + "/" + Id_Cubo + "/" + FechaPedido;
+        //            client.BaseAddress = new Uri(this.UrlApiCubos);
+        //            client.DefaultRequestHeaders.Clear();
+        //            client.DefaultRequestHeaders.Accept.Add(this.Header);
 
                 
 
-                    //string json = JsonConvert.SerializeObject(personaje);
+        //            //string json = JsonConvert.SerializeObject(personaje);
 
-                    //StringContent content =
-                    //    new StringContent(json, Encoding.UTF8, "application/json");
-                    HttpResponseMessage response =
-                        await client.PostAsync(request);
-                }
-            }
+        //            //StringContent content =
+        //            //    new StringContent(json, Encoding.UTF8, "application/json");
+        //            HttpResponseMessage response =
+        //                await client.PostAsync(request);
+        //        }
+        //    }
             
-        }
+        //}
 
     }
 }
