@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcSGCubos.Filters;
 using MvcSGCubos.Models;
 using MvcSGCubos.Services;
 
@@ -56,6 +57,16 @@ namespace MvcSGCubos.Controllers
         public IActionResult InsertarCubo()
         {
             return View();
+        }
+
+        [AuthorizeUsuarios]
+        public async Task<IActionResult> Perfil()
+        {
+            string token =
+                HttpContext.Session.GetString("TOKEN");
+            Usuario usuario = await
+                this.service.PerfilUsuarioAsync(token);
+            return View(usuario);
         }
 
 
